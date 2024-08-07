@@ -5,11 +5,16 @@ import StacksRoutes from './src/routes/StacksRoutes';
 import 'react-native-gesture-handler'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+import { LogBox } from 'react-native';
 
 
 
 
 const App = () => {
+
+  LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+  LogBox.ignoreAllLogs();//Ignore all log notifications
+
   return (
     <GestureHandlerRootView style={{flex:1}}>
 
