@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../../components/HomeScreen';
 import NotificationsScreen from '../../components/NotificationsScreen';
 import Navbar from '../../components/Navbar';
-import CustomDrawers from './CustomDrawers';
+import CustomDrawers from './CustomDrawer';
 
 
 

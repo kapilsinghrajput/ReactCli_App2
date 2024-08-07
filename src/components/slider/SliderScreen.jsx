@@ -50,7 +50,6 @@ const SliderScreen = () => {
         // onCurrentImagePressed={index => console.warn(`image ${index} pressed`)}
       />
       )
-        
 
         }
 

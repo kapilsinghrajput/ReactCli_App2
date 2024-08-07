@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const CustomDrawers = () => {
+const Mandir_details = () => {
   return (
     <View>
-      <Text>CustomDrawers</Text>
+      <Text>Mandir_details</Text>
     </View>
   )
 }
 
-export default CustomDrawers
+export default Mandir_details
