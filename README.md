@@ -77,3 +77,20 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+
+
+
+######  IT'S KAPIL SINGH SHEKHAWAT CUSTOM README   #######
+
+
+1  make sure react native reanimate package version and gesturehandler version same 
+my version = 
+Reanimated :        "react-native-reanimated": "~3.10.1",
+Gesture-handler :   "react-native-gesture-handler": "~2.16.1",
+
+
+
+2  In this project i use  special libary is:-
+    "react-native-image-slider-box": "github:megamaxs1234/react-native-image-slider-box",
+

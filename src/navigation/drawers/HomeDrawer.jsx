@@ -3,6 +3,8 @@ import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../../components/HomeScreen';
 import NotificationsScreen from '../../components/NotificationsScreen';
+import Navbar from '../../components/Navbar';
+import CustomDrawers from './CustomDrawers';
 
 
 
@@ -11,10 +13,15 @@ const Drawer = createDrawerNavigator();
 
 const HomeDrawer = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home">
-    <Drawer.Screen name="Home" component={HomeScreen} />
-    <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-  </Drawer.Navigator>
+    <Drawer.Navigator
+    drawerContent={props => <CustomDrawers {...props} />}
+    screenOptions={{
+        header: ({ navigation }) => <Navbar navigation={navigation} />
+    }} >
+
+    <Drawer.Screen name='homeScreen' component={HomeScreen} />
+    
+</Drawer.Navigator>
   )
 }
 
