@@ -5,7 +5,7 @@ import StacksRoutes from './src/routes/StacksRoutes';
 import 'react-native-gesture-handler'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { LogBox } from 'react-native';
+import { LogBox, View } from 'react-native';
 
 
 

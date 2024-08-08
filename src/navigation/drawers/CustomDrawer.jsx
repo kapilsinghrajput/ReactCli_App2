@@ -128,8 +128,8 @@ renderItem={({item})=>(
 <TouchableOpacity   onPress={() => handelOnPress(item)}>
 <LinearGradient className="w-full mt-1 p-2 " colors={['#e65c00', '#F9D423']}>
   <View className=" px-5 flex flex-row items-center justify-between gap-2">
-    <Text className='  text-[20px] font-medium'>{item.name}</Text>
-    <Icon name="chevron-right" size={32}  />
+    <Text className=' text-[#171616] text-[20px] font-medium'>{item.name}</Text>
+    <Icon name="chevron-right" size={32} color={"#171616"} />
   </View>
 </LinearGradient>
 </TouchableOpacity>

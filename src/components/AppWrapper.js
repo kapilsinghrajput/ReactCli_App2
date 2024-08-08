@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 const AppWrapper = ({children}) => {
   return (
-        <SafeAreaView style={{flex:1, backgroundColor:"red"}}>
+        <SafeAreaView style={{flex:1, }}>
       {children}
         </SafeAreaView>
   )
