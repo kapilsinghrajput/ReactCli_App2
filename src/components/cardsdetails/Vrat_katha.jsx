@@ -28,7 +28,7 @@ const Vrat_katha = () => {
         <ScrollView style={styles.container} className="min-h-[100vh] " >  
       
         
-        <ImageBackground source={require("../../../assets/images/bg-circle (1).png")} resizeMode="cover" className="flex-1 justify-center min-h-[100vh]" style={styles.image}>
+        <ImageBackground source={require("../../../assets/images/bg-circle.png")} resizeMode="cover" className="flex-1 justify-center min-h-[100vh]" style={styles.image}>
         </ImageBackground>
 
         <View className="  bg-orange-500 p-1  rounded-2xl  w-[94%] h-50 mx-auto flex flex-row items-center  mt-10 ">

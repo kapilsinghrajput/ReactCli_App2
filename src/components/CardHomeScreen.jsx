@@ -72,13 +72,13 @@ const CardHomeScreen = () => {
 
   return (
     <View className="flex flex-row flex-wrap justify-between   px-3 pb-8" style={styles.container}>
-       <ImageBackground source={require("../../assets/images/bg-circle (1).png")} resizeMode="cover" className="flex-1 justify-center" style={styles.image}>
+       <ImageBackground source={require("../../assets/images/bg-circle.png")} resizeMode="cover" className="flex-1 justify-center" style={styles.image}>
        </ImageBackground>
       {Users.map((e, ind) => (
-        <TouchableOpacity activeOpacity={1} onPress={() => handelOnPress(e)} key={ind} className="w-[48%] h-36  md:h-60   mt-6 rounded-t-3xl ">
+        <TouchableOpacity activeOpacity={1} onPress={() => handelOnPress(e)} key={ind} className="w-[48%] md:w-[29%]  h-36  md:h-[40%]   mt-6 rounded-t-3xl ">
 <LinearGradient colors={['#F9D423','#e65c00' ]} className="w-full h-full flex flex-col items-center border-2 rounded-md">
-          <Image source={e.img} resizeMode='contain' className="  w-full h-[100] md:h-44 justify-center drop-shadow-2xl rounded-t-3xl " />
-          <View className="bg-yellow-950 w-full h-10  ">
+          <Image source={e.img} resizeMode='contain' className="  w-full h-[100]  justify-center drop-shadow-2xl rounded-t-3xl " />
+          <View className="bg-yellow-950 w-full h-10 md:h-16 md:mt-9 ">
           <Text className="text-xl  text-white mx-auto mt-2 md:my-auto md:text-2xl ">{e.name}</Text>
           </View>
 </LinearGradient>

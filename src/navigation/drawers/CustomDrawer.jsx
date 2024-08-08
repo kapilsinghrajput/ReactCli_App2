@@ -118,7 +118,7 @@ return (
    </View>
 
 
-<ImageBackground source={require("../../../assets/images/bg-circle (1).png")} resizeMode="cover" style={styles.image}>
+<ImageBackground source={require("../../../assets/images/bg-circle.png")} resizeMode="cover" style={styles.image}>
 </ImageBackground>
 
 <FlatList

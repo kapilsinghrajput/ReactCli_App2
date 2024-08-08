@@ -21,7 +21,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container:{
     width:deviceWidth,
-    height:deviceHeight,
+    height:deviceHeight, 
   },
 
 

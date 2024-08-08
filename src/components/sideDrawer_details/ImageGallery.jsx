@@ -37,7 +37,7 @@ const ImageGallery = () => {
 
   const renderItem = ({ item, index }) => (
     <TouchableOpacity onPress={() => imageHandler(item.image)}>
-      <View style={styles.container} className="md:m-5">
+      <View style={styles.container} className="md:m-8"  >
         <View style={styles.Inner_container}>
           <Image
             source={{ uri: item.image }}

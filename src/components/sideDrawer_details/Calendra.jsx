@@ -72,7 +72,7 @@ const Calendra_Screen = () => {
         />
 
 <PinchGestureHandler onGestureEvent={handelePinch} >
-    <Animated.Image source={{ uri: ImageUrl}} style={{transform:[{scale}]}} className=" mt-auto rounded-lg w-[100%] h-[100%]  " resizeMode='contain'  />
+    <Animated.Image source={{ uri: ImageUrl}} style={{transform:[{scale}]}} className=" mt-auto rounded-lg w-[100%] h-[100%] md:h-[70%] md:mt-4 " resizeMode='contain'  />
 </PinchGestureHandler>
 
     </View>

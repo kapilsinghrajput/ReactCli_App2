@@ -34,7 +34,7 @@ const PaathInnerDetails = () => {
       <BackNavbar nametype={details.title}/>  
     <ScrollView style={styles.container}>
 
-    <ImageBackground source={require("../../../../../assets/images/bg-circle (1).png")} resizeMode="cover" className="flex-1 justify-center" style={styles.image}>
+    <ImageBackground source={require("../../../../../assets/images/bg-circle.png")} resizeMode="cover" className="flex-1 justify-center" style={styles.image}>
     </ImageBackground>
 
     <View className=" bg-orange-500  overflow-hidden rounded-xl  w-[95%] h-16 mx-auto flex flex-row items-center justify-center mt-5 ">

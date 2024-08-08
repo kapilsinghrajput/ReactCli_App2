@@ -54,7 +54,7 @@ const Sujav = () => {
 
   return (
     <ScrollView style={{ width: deviceWidth, height: deviceHeight }} className="bg-orange-300">
-      <ImageBackground source={require("../../../assets/images/bg-circle (1).png")} resizeMode="contain" style={styles.image}>
+      <ImageBackground source={require("../../../assets/images/bg-circle.png")} resizeMode="contain" style={styles.image}>
       </ImageBackground>
       <BackNavbar nametype={"सुझाव"} />
       <View style={{ height: '25%', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 2, borderColor: 'gray' }}>

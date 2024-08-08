@@ -1,7 +1,6 @@
 import { View, Text,  Image, TouchableOpacity, } from 'react-native';
 import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import BackNavbar from '../../../BackNavbar';
 import { FlashList } from "@shopify/flash-list";
 import { Api_EndPoind } from '../../../../apis/Endpoind';

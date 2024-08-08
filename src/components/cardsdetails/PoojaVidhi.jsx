@@ -32,7 +32,7 @@ const PoojaVidhi = () => {
         <View className="flex-1">
        <BackNavbar nametype={NameType}/>                                                                               
         <ScrollView style={styles.container}>
-            <ImageBackground source={require("../../../assets/images/bg-circle (1).png")} resizeMode="cover" className="flex-1 justify-center" style={styles.image}>
+            <ImageBackground source={require("../../../assets/images/bg-circle.png")} resizeMode="cover" className="flex-1 justify-center" style={styles.image}>
             </ImageBackground>
 
             <View className=" bg-orange-500  rounded-2xl  w-[94%] h-50 mx-auto flex flex-row items-center  mt-10 ">
