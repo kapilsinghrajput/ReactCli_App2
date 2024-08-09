@@ -80,7 +80,7 @@ const GalleryDetails = () => {
       await Share.open(shareOptions);
     } catch (error) {
       console.error('Error sharing the image:', error);
-      Alert.alert('Error', 'Something went wrong while sharing the image');
+      Alert.alert('Error', '');
     }
   };
 
