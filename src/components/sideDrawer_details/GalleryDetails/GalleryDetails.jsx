@@ -1,72 +1,91 @@
-import React, { useRef } from 'react';
-import { View, TouchableOpacity, Animated, Dimensions, Alert } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { View, TouchableOpacity, Alert, PermissionsAndroid, Platform, Animated, Dimensions } from 'react-native';
+import React, { useRef, useState } from 'react';
+import RNFetchBlob from 'rn-fetch-blob';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-
-
+import { useNavigation, useRoute } from '@react-navigation/native';
+import ViewShot from 'react-native-view-shot';
+import Share from 'react-native-share';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
 const GalleryDetails = () => {
   const ref = useRef();
-  const Route = useRoute();
-  const { imageurl } = Route.params;
+  const route = useRoute();
+  const { imageurl } = route.params;
   const navigate = useNavigation();
-
-  const imageUrl = { uri: imageurl };
+  
+  const [downloadedImagePath, setDownloadedImagePath] = useState(null);
 
   const handleDownload = async () => {
-    let date = moment().format('YYYYMMDDhhmmss');
-    let fileUri = FileSystem.documentDirectory + `${date}.jpg`;
-
     try {
-      const { status } = await MediaLibrary.requestPermissionsAsync();
-      
-      if (status === 'granted') {
-        const downloadResumable = FileSystem.createDownloadResumable(
-          imageUrl.uri,
-          fileUri
+      if (Platform.OS === 'android') {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission Required',
+            message: 'App needs access to your storage to download photos',
+          }
         );
-
-        const { uri } = await downloadResumable.downloadAsync();
-        saveFile(uri);
-      } else {
-        Alert.alert('Permission denied', 'Please allow permission to save the image.');
+        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+          Alert.alert('Error', 'Storage permission not granted');
+          return;
+        }
       }
+
+      const { config, fs } = RNFetchBlob;
+      const PictureDir = fs.dirs.PictureDir;
+      const filename = `downloadedImage_${Date.now()}.jpg`;
+      const imagePath = `${PictureDir}/${filename}`;
+
+      const options = {
+        fileCache: true,
+        addAndroidDownloads: {
+          useDownloadManager: true,
+          notification: true,
+          path: imagePath,
+          description: 'Image',
+        },
+      };
+
+      config(options)
+        .fetch('GET', imageurl)
+        .then((res) => {
+          setDownloadedImagePath(imagePath); // Save the downloaded image path
+          Alert.alert('Success', 'Image Downloaded Successfully.');
+        })
+        .catch((error) => {
+          Alert.alert('Error', 'Image Download Failed.');
+          console.error(error);
+        });
     } catch (err) {
-      console.error('Download error:', err);
-      Alert.alert('Download failed', 'Failed to download the image.');
+      console.error(err);
+      Alert.alert('Error', 'Something went wrong');
     }
   };
 
-  const saveFile = async (fileUri) => {
+  const handleShare = async () => {
     try {
-      const asset = await MediaLibrary.createAssetAsync(fileUri);
-      const album = await MediaLibrary.getAlbumAsync('Download');
-
-      if (album === null) {
-        await MediaLibrary.createAlbumAsync('Download', asset, false);
-      } else {
-        await MediaLibrary.addAssetsToAlbumAsync([asset], album, false);
+      if (!downloadedImagePath) {
+        Alert.alert('Error', 'Please download the image first.');
+        return;
       }
 
-      Alert.alert('Image saved', 'Image saved successfully to Download album.');
-    } catch (err) {
-      console.error('Save error:', err);
-      Alert.alert('Save failed', 'Failed to save the image.');
+      const shareOptions = {
+        title: 'Share Image',
+        url: `file://${downloadedImagePath}`,
+        message: '',
+      };
+
+      await Share.open(shareOptions);
+    } catch (error) {
+      console.error('Error sharing the image:', error);
+      Alert.alert('Error', 'Something went wrong while sharing the image');
     }
   };
-
-  // for scaleableImage
-  const scale = useRef(new Animated.Value(1)).current;
-  const handelePinch = Animated.event([{ nativeEvent: { scale: scale } }], {
-    useNativeDriver: false,
-  });
 
   return (
-    <View style={{ flex: 1, }} className=" bg-zinc-900  ">
+    <View style={{ flex: 1 }} className="bg-zinc-900">
       <TouchableOpacity
         onPress={() => navigate.goBack()}
         style={{ position: 'absolute', top: 15, right: 15, zIndex: 999 }}
@@ -81,27 +100,30 @@ const GalleryDetails = () => {
         <Icon name="download" size={42} color="white" />
       </TouchableOpacity>
 
-  
-      <View>
+      <TouchableOpacity
+        onPress={handleShare}
+        style={{ position: 'absolute', bottom: 15, left: 15, zIndex: 999 }}
+      >
+        <Icon name="share" size={42} color="white" />
+      </TouchableOpacity>
 
-        <Animated.Image
-          source={{ uri: imageurl }}
-          style={{
-            transform: [{ scale }],
-            width: deviceWidth,
-            height: deviceHeight,
-            borderRadius: 10,
-            marginVertical: 10,
-            alignSelf: 'center',
-          }}
-          resizeMode="contain"
+      <ViewShot ref={ref}>
+        <View>
+          <Animated.Image
+            source={{ uri: imageurl }}
+            style={{
+              width: deviceWidth,
+              height: deviceHeight,
+              borderRadius: 10,
+              marginVertical: 10,
+              alignSelf: 'center',
+            }}
+            resizeMode="contain"
           />
-          </View>
-{/* </PinchGestureHandler> */}
-
-   
+        </View>
+      </ViewShot>
     </View>
   );
 };
-  
+
 export default GalleryDetails;

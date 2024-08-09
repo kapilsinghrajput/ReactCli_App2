@@ -43,9 +43,9 @@ const Navbar = ({ navigation }) => {
           </TouchableOpacity > 
 
       <View className="flex flex-row items-center md:items-end  justify-center ">
-        <Text style={{fontSize:deviceWidth*0.05}} className='  md:text-4xl text-white p-2 md:py-5 '>पूजा</Text>
+        <Text style={{fontSize:deviceWidth*0.05}} className=' font-semibold md:text-4xl text-white p-2 md:py-5 '>पूजा</Text>
         <Image style={{ width: deviceWidth*0.10 , height: deviceHeight*0.10, objectFit: "contain", borderRadius: 10 }} source={require("../../assets/images/logo.png")}  />
-        <Text style={{fontSize:deviceWidth*0.05}} className=' md:text-4xl text-white  p-2 md:py-5 '>विधी</Text>
+        <Text style={{fontSize:deviceWidth*0.05}} className=' font-semibold  md:text-4xl text-white  p-2 md:py-5 '>विधी</Text>
       </View>
 
       <View className="flex flex-row gap-0">

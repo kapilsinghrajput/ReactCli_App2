@@ -4,14 +4,12 @@ import { View, Image, TouchableOpacity, FlatList, Dimensions, StyleSheet, Text, 
 import BackNavbar from '../BackNavbar';
 import { Api_EndPoind } from '../../apis/Endpoind';
 
-import Gallery from 'react-native-awesome-gallery';
-
-
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
 const Vichar = () => {
   const [images, setImages] = useState([]);
+  const [pagetitle, setpagetitle] = useState([]);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -23,6 +21,7 @@ const Vichar = () => {
       const api = `${Api_EndPoind}/quotations`;
       const response = await fetch(api);
       const res = await response.json();
+      setpagetitle(res.message)
       setImages(res.data);
     } catch (error) {
       console.error('Error fetching gallery:', error);
