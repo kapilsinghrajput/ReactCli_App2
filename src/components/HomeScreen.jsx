@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native'
+import {  StyleSheet, Dimensions, ScrollView } from 'react-native'
 import React from 'react'
 import SliderScreen from './slider/SliderScreen'
 import CardHomeScreen from './CardHomeScreen';
-
 
 
 let deviceHeight = Dimensions.get('window').height
@@ -17,7 +16,6 @@ const HomeScreen = () => {
   )
 }
 
-
 const styles = StyleSheet.create({
   container:{
     width:deviceWidth,
@@ -27,4 +25,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default HomeScreen
+export default HomeScreen;

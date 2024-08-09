@@ -66,21 +66,19 @@ const GalleryDetails = () => {
 
   const handleShare = async () => {
     try {
-      if (!downloadedImagePath) {
-        Alert.alert('Error', 'Please download the image first.');
-        return;
-      }
+      // Capture the screen using ViewShot
+      const uri = await ref.current.capture();
 
       const shareOptions = {
         title: 'Share Image',
-        url: `file://${downloadedImagePath}`,
+        url: uri,
         message: '',
       };
 
       await Share.open(shareOptions);
     } catch (error) {
       console.error('Error sharing the image:', error);
-      Alert.alert('Error', '');
+    
     }
   };
 
@@ -107,7 +105,7 @@ const GalleryDetails = () => {
         <Icon name="share" size={42} color="white" />
       </TouchableOpacity>
 
-      <ViewShot ref={ref}>
+      <ViewShot ref={ref} options={{ format: 'jpg', quality: 0.9 }}>
         <View>
           <Animated.Image
             source={{ uri: imageurl }}
