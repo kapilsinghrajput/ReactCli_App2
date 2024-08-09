@@ -54,8 +54,8 @@ const renderPaathItem = ({ item })=>{
         <LinearGradient className="w-full mt-1 p-2 " colors={['#e65c00', '#F9D423']}> 
           <View className=" w-[100%]  flex-row items-center justify-between  gap-y-1">
             <Image source={{ uri: item.image }} className="h-12 w-12  rounded-full object-cover " />
-            <Text className=' flex-1 ml-5 md:ml-10  text-[20px] font-semibold '>{item.title}</Text>
-            <Icon name="chevron-right" size={32} style={{ position: "absolute", right: 60, top: 5 }} />
+            <Text className=' text-black flex-1 ml-5 md:ml-10  text-[20px] font-semibold '>{item.title}</Text>
+            <Icon name="chevron-right" size={32} color={"black"} style={{ position: "absolute", right: 60, top: 5 }} />
           </View>
         </LinearGradient>
       </TouchableOpacity>
