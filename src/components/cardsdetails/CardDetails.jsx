@@ -127,8 +127,8 @@ const AllCatDetailsData = Data && Data.length > 0 ? Data.map(e => e) : [];
     <LinearGradient className="w-full  py-2 px-4 " colors={['#e65c00', '#F9D423']}>
       <View className=" w-[100%]  flex-row items-center justify-between  gap-y-1">
         <Image source={{ uri: item.img_url }} className="h-12 w-12  rounded-full object-cover " />
-        <Text className=' flex-1 ml-5 md:ml-10  text-[20px] font-semibold '>{truncateString(item.name+`${nameType}`, 25)}</Text>
-        < Icon name="chevron-right" size={32}  />
+        <Text className=' text-black flex-1 ml-5 md:ml-10  text-[20px] font-semibold '>{truncateString(item.name+`${nameType}`, 25)}</Text>
+        < Icon name="chevron-right" size={32} color={"black"} />
       </View>
     </LinearGradient>
   </TouchableOpacity>
@@ -140,10 +140,10 @@ const AllCatDetailsData = Data && Data.length > 0 ? Data.map(e => e) : [];
         <LinearGradient className="w-full  py-2 px-4 " colors={['#e65c00', '#F9D423']}>
           <View className=" w-[100%]  flex-row items-center justify-between  gap-y-1">
             <Image source={{ uri: item.image }} style={{ width: 50, height: 50, borderRadius: 25 }} />
-            <Text className=' flex-1 ml-5 md:ml-10 text-[20px] font-semibold'>
+            <Text className=' text-black flex-1 ml-5 md:ml-10 text-[20px] font-semibold'>
               {truncateString(item.title, 25)}
             </Text>
-            <Icon name="chevron-right" size={32} style={{ }} />
+            <Icon name="chevron-right" size={32} color={"black"} />
           </View>
         </LinearGradient>
       </TouchableOpacity>
@@ -156,10 +156,10 @@ const AllCatDetailsData = Data && Data.length > 0 ? Data.map(e => e) : [];
       <LinearGradient className="w-full  py-2 px-4 "  colors={['#e65c00', '#F9D423']}>
         <View  className=" w-[100%]  flex-row items-center justify-between  gap-y-1">
           <Image source={{ uri: item.image }} style={{ width: 50, height: 50, borderRadius: 25 }} />
-          <Text className=' flex-1 ml-5 md:ml-10 text-[20px] font-semibold'>
+          <Text className=' text-black flex-1 ml-5 md:ml-10 text-[20px] font-semibold'>
             {truncateString(item.title, 25)}
           </Text>
-          <Icon name="chevron-right" size={32} style={{}} />
+          <Icon name="chevron-right" size={32} color={"black"} />
         </View>
       </LinearGradient>
     </TouchableOpacity>
